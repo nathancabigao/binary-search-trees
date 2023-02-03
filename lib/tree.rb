@@ -99,4 +99,31 @@ class Tree
     return find(value, node.left) if node.left && value < node.data
     return find(value, node.right) if node.right && value > node.data
   end
+
+  def inorder(node = @root, out = [], &block)
+    return nil if node.nil?
+
+    inorder(node.left, out)
+    out << (block_given? ? block.call(node) : node.data)
+    inorder(node.right, out)
+    out
+  end
+
+  def preorder(node = @root, out = [], &block)
+    return nil if node.nil?
+
+    out << (block_given? ? block.call(node) : node.data)
+    preorder(node.left, out)
+    preorder(node.right, out)
+    out
+  end
+
+  def postorder(node = @root, out = [], &block)
+    return nil if node.nil?
+
+    postorder(node.left, out)
+    postorder(node.right, out)
+    out << (block_given? ? block.call(node) : node.data)
+    out
+  end
 end

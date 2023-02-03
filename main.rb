@@ -33,3 +33,9 @@ p test_tree.find(test_find)
 test_find = 0
 puts "\nTesting finding a non-existent node with value #{test_find}:"
 p test_tree.find(test_find)
+
+# Testing depth-level traversal
+puts "\nTesting Depth-Level traversal methods."
+puts "Preorder array: #{test_tree.preorder.inspect}"
+puts "Inorder array: #{test_tree.inorder.inspect}"
+puts "Postorder array: #{test_tree.postorder.inspect}"
