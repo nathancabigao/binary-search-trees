@@ -51,3 +51,9 @@ test_tree.pretty_print
 puts "The height of the tree is #{test_tree.height}."
 puts "The height of the tree from a leaf node (9) is #{test_tree.height(test_tree.find(9))}"
 puts "The height of the tree from another node (4) is #{test_tree.height(test_tree.find(4))}"
+
+# Test depth
+puts "\nTesting depth:"
+puts "The depth of the node (8) is #{test_tree.depth}"
+puts "The depth of the node (322) is #{test_tree.depth(test_tree.find(322))}"
+puts "The depth of the node (7) is #{test_tree.depth(test_tree.find(7))}"

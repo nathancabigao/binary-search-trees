@@ -136,4 +136,13 @@ class Tree
     right = node.right ? height(node.right, edges) : edges
     [left, right].max
   end
+
+  # Return the number of edges from the root to the given node
+  def depth(target = @root, curr = @root, edges = 0)
+    return edges if target == @root || curr.nil? || !curr.any_children? || curr == target
+
+    edges += 1
+    next_node = curr.data > target.data ? curr.left : curr.right
+    depth(target, next_node, edges)
+  end
 end
