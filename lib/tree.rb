@@ -84,4 +84,19 @@ class Tree
     node = node.left while node && !node.left.nil?
     node
   end
+
+  def find(value, node = @root)
+    # Base case: node is nil or node matches
+    return node if node.nil? || node.data == value
+    # Base case pt. 2: return nil if no match and no children
+    return nil unless node.any_children?
+
+    # Find in either the left or right
+    find_left_right(value, node)
+  end
+
+  def find_left_right(value, node)
+    return find(value, node.left) if node.left && value < node.data
+    return find(value, node.right) if node.right && value > node.data
+  end
 end

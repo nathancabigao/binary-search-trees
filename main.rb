@@ -25,3 +25,11 @@ test_delete = 67
 puts "\nTesting deleting a node with value #{test_delete}:"
 test_tree.delete(test_delete)
 test_tree.pretty_print
+
+# Test finding a node
+test_find = 3
+puts "\nTesting finding a node with value #{test_find}:"
+p test_tree.find(test_find)
+test_find = 0
+puts "\nTesting finding a non-existent node with value #{test_find}:"
+p test_tree.find(test_find)
