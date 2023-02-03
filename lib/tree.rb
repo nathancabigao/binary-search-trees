@@ -145,4 +145,16 @@ class Tree
     next_node = curr.data > target.data ? curr.left : curr.right
     depth(target, next_node, edges)
   end
+
+  # Returns whether or not the tree is balanced, where the heights of every
+  # subtree for every node is not more than 1.
+  def balanced?(node = @root)
+    # Base case: node nil or node has no children
+    return true if node.nil? || !node.any_children?
+
+    # Check if the height diff of left and right subtrees are > 1. If so, return false.
+    return false if (height(node.left) - height(node.right)).abs > 1
+
+    balanced?(node.left) && balanced?(node.right)
+  end
 end

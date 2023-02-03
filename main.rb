@@ -57,3 +57,13 @@ puts "\nTesting depth:"
 puts "The depth of the node (8) is #{test_tree.depth}"
 puts "The depth of the node (322) is #{test_tree.depth(test_tree.find(322))}"
 puts "The depth of the node (7) is #{test_tree.depth(test_tree.find(7))}"
+
+# Test balanced
+puts "\nTesting balanced first with our current unbalanced tree..."
+test_tree.pretty_print
+puts "Is this tree balanced? #{test_tree.balanced?}"
+puts "Removing the recently added elements to create a balanced tree..."
+test_tree.delete(322)
+test_tree.delete(323)
+test_tree.pretty_print
+puts "Is this tree balanced? #{test_tree.balanced?}"
