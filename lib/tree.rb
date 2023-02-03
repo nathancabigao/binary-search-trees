@@ -40,4 +40,48 @@ class Tree
     # return the node after insert
     node
   end
+
+  def delete(value, node = @root)
+    # return node if node nil
+    return node if node.nil?
+
+    # if value < node.data, go left
+    if value < node.data
+      node.left = delete(value, node.left)
+    # if value > node.data, go right
+    elsif value > node.data
+      node.right = delete(value, node.right)
+    else
+      # if node is a leaf node, return nil
+      return nil unless node.any_children?
+      # return the left or right child if any
+      return delete_check_children(node) if node.only_one_child?
+
+      # else, delete the value and move its successor to the deleted node spot
+      delete_move_successor(node)
+    end
+    node
+  end
+
+  def delete_check_children(node)
+    # if it has only a left, return left
+    return node.right if node.left.nil?
+
+    # else if it has only a right, return right
+    return node.left if node.right.nil?
+  end
+
+  def delete_move_successor(node)
+    # else set the value of node as of its inorder successor and...
+    node.data = min_value_node(node.right).data
+
+    # recur to delete the node with value of the inorder successor
+    node.right = delete(node.data, node.right)
+  end
+
+  # Returns the lowest value in the given tree
+  def min_value_node(node = @root)
+    node = node.left while node && !node.left.nil?
+    node
+  end
 end

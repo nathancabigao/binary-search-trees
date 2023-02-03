@@ -19,3 +19,9 @@ test_insert = 69
 puts "\nTesting inserting a node with value #{test_insert}:"
 test_tree.insert(test_insert)
 test_tree.pretty_print
+
+# Test deleting a node
+test_delete = 67
+puts "\nTesting deleting a node with value #{test_delete}:"
+test_tree.delete(test_delete)
+test_tree.pretty_print

@@ -11,4 +11,12 @@ class Node
     @left = left
     @right = right
   end
+
+  def any_children?
+    @left.nil? && @right.nil? ? false : true
+  end
+
+  def only_one_child?
+    (@left.nil? && @right) || (@left && @right.nil?) ? true : false
+  end
 end
