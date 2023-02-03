@@ -160,7 +160,7 @@ class Tree
 
   # Rebalances an unbalanced tree, by traversing the tree inorder and calling #build_tree with the result
   def rebalance
-    new_array = inorder
-    @root = build_tree(new_array)
+    @array = inorder
+    @root = build_tree(@array)
   end
 end
