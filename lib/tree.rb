@@ -126,4 +126,14 @@ class Tree
     out << (block_given? ? block.call(node) : node.data)
     out
   end
+
+  # Return the number of edges in longest path from given node to a leaf node
+  def height(node = @root, edges = 0)
+    return edges if node.nil? || !node.any_children?
+
+    edges += 1
+    left = node.left ? height(node.left, edges) : edges
+    right = node.right ? height(node.right, edges) : edges
+    [left, right].max
+  end
 end

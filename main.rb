@@ -42,3 +42,12 @@ puts "Postorder array: #{test_tree.postorder.inspect}"
 puts 'Test inorder with a block to multiply node data by 2:'
 x = test_tree.inorder { |node| node.data * 2 }
 p x
+
+# Test height
+puts "\nTesting height of root after creating a distinct longest path..."
+test_tree.insert(323)
+test_tree.insert(322)
+test_tree.pretty_print
+puts "The height of the tree is #{test_tree.height}."
+puts "The height of the tree from a leaf node (9) is #{test_tree.height(test_tree.find(9))}"
+puts "The height of the tree from another node (4) is #{test_tree.height(test_tree.find(4))}"
