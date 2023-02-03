@@ -39,3 +39,6 @@ puts "\nTesting Depth-Level traversal methods."
 puts "Preorder array: #{test_tree.preorder.inspect}"
 puts "Inorder array: #{test_tree.inorder.inspect}"
 puts "Postorder array: #{test_tree.postorder.inspect}"
+puts 'Test inorder with a block to multiply node data by 2:'
+x = test_tree.inorder { |node| node.data * 2 }
+p x

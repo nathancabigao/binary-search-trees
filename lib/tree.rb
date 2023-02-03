@@ -103,9 +103,9 @@ class Tree
   def inorder(node = @root, out = [], &block)
     return nil if node.nil?
 
-    inorder(node.left, out)
-    out << (block_given? ? block.call(node) : node.data)
-    inorder(node.right, out)
+    inorder(node.left, out, &block)
+    out.push(block_given? ? block.call(node) : node.data)
+    inorder(node.right, out, &block)
     out
   end
 
@@ -113,16 +113,16 @@ class Tree
     return nil if node.nil?
 
     out << (block_given? ? block.call(node) : node.data)
-    preorder(node.left, out)
-    preorder(node.right, out)
+    preorder(node.left, out, &block)
+    preorder(node.right, out, &block)
     out
   end
 
   def postorder(node = @root, out = [], &block)
     return nil if node.nil?
 
-    postorder(node.left, out)
-    postorder(node.right, out)
+    postorder(node.left, out, &block)
+    postorder(node.right, out, &block)
     out << (block_given? ? block.call(node) : node.data)
     out
   end
