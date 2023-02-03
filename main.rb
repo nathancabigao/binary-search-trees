@@ -13,4 +13,11 @@ test_array = Array.new(15) { rand(1..100) }
 p test_array
 test_bst = Tree.new(test_array)
 test_bst.pretty_print
+
+# Step 2. Confirm that the tree is balanced by calling #balanced?
 puts "BST Balanced? #{test_bst.balanced?}"
+
+# Step 3. Print out all elements in level, pre, post, and in order
+puts "Preorder: #{test_bst.preorder.inspect}"
+puts "Inorder: #{test_bst.inorder.inspect}"
+puts "Postorder: #{test_bst.postorder.inspect}"
